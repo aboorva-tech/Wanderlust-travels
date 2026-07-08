@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travels</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">✈️ Wanderlust Travels</div>
+        
+            <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#planner">Trip Planner</a></li>
+</ul>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <header id="home" class="hero">
+        <h1>Explore the World With Us</h1>
+        <p>Your next adventure starts here. Contact us to book your dream destination!</p>
+    </header>
+        <!-- IMAGE GALLERY SECTION -->
+    <section id="gallery" class="section-container">
+        <h2 class="section-title">Popular Destinations</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600" alt="Paris">
+                <div class="gallery-overlay">
+                    <h3>Paris, France</h3>
+                    <p>The City of Love</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600" alt="Kyoto">
+                <div class="gallery-overlay">
+                    <h3>Kyoto, Japan</h3>
+                    <p>Ancient Temples & Culture</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" alt="Bali">
+                <div class="gallery-overlay">
+                    <h3>Bali, Indonesia</h3>
+                    <p>Tropical Paradise</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600" alt="Dubai">
+                <div class="gallery-overlay">
+                    <h3>Dubai, UAE</h3>
+                    <p>Modern Marvels</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600" alt="Venice">
+                <div class="gallery-overlay">
+                    <h3>Venice, Italy</h3>
+                    <p>City of Canals</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Maldives">
+                <div class="gallery-overlay">
+                    <h3>Maldives</h3>
+                    <p>Crystal Clear Waters</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 3. CONTACT FORM SECTION -->
+    <section id="contact" class="section-container">
+        <h2 class="section-title">Contact Us / Book a Trip</h2>
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="success-msg">
+            ✅ Thank you! Your message has been sent successfully. We will contact you soon.
+        </div>
+        <!-- The Form starts here -->
+                  <form id="contactForm" class="contact-form">
+            
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="John Doe">
+                <span class="error-msg" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" placeholder="john@example.com">
+                <span class="error-msg" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="1234567890">
+                <span class="error-msg" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Trip to Paris">
+                <span class="error-msg" id="subjectError"></span>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Tell us about your travel plans..."></textarea>
+                <span class="error-msg" id="messageError"></span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-buttons full-width">
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+    <span id="btnText">Submit</span>
+    <span id="btnLoader" class="loader" style="display: none;"></span>
+</button>
+                <button type="reset" class="btn">Reset</button>
+            </div>
+
+        </form>  
+            
+
+
+
+
+
+            
+
+        
+    </section>
+        <!-- 4. TO-DO LIST SECTION (Trip Planner) -->
+    <section id="planner" class="section-container">
+        <h2 class="section-title">My Trip Planner / Packing List</h2>
+        
+        <div class="todo-container">
+            <div class="todo-input-group">
+                <input type="text" id="todoInput" placeholder="Add a new task (e.g., Pack passport)">
+                <button id="addTodoBtn" class="btn">Add Task</button>
+            </div>
+            
+            <!-- This empty list will be filled dynamically by JavaScript later -->
+            <ul id="todoList" class="todo-list">
+                <!-- Tasks will appear here -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Wanderlust Travels. All rights reserved. | Explore the world.</p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>

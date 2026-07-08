@@ -1,0 +1,359 @@
+/* 1. CSS Variables (Our Color Palette) */
+:root {
+    --primary-blue: #0056b3;
+    --dark-blue: #003d82;
+    --light-gray: #f4f7f6;
+    --white: #ffffff;
+    --text-dark: #333333;
+}
+
+/* 2. Global Reset (Removes default browser spacing) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+/* 3. Navigation Bar (Using Flexbox) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* 4. Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+/* 5. Section Containers (The white boxes holding our content) */
+.section-container {
+    max-width: 900px;
+    margin: 3rem auto; /* Centers the box and adds space above/below */
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* 6. Contact Form Layout (Using CSS Grid) */
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates 2 equal columns */
+    gap: 1.5rem; /* Space between the grid items */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stacks label on top of input */
+}
+
+/* This class makes an item stretch across BOTH columns */
+.full-width {
+    grid-column: 1 / -1; 
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* 7. Buttons Styling */
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px; /* Makes them rounded/pill-shaped */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--dark-blue); /* Darkens on hover */
+}
+/* 8. To-Do List Styling */
+.todo-container {
+    max-width: 600px;
+    margin: 0 auto; /* Centers the todo section */
+}
+
+.todo-input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input-group input {
+    flex: 1; /* Takes up all available space next to the button */
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.todo-list {
+    list-style: none; /* Removes the default black bullet points */
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-gray);
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.todo-item:hover {
+    background: #e8eef2; /* Changes color slightly when mouse is over it */
+}
+
+.todo-text {
+    flex: 1;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+/* Style for completed tasks (we will add this class with JS later) */
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background: #e74c3c; /* Nice red color */
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+}
+
+/* 9. Footer Styling */
+.footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+/* =========================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================= */
+
+/* Tablet View (Max width 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stacks logo and links vertically */
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Makes the big title a bit smaller */
+    }
+
+    /* Change form to 1 column on tablet/mobile */
+    .contact-form {
+        grid-template-columns: 1fr; /* Now it's only 1 column! */
+    }
+
+    .todo-input-group {
+        flex-direction: column; /* Stacks input and button vertically */
+    }
+}
+
+/* Mobile View (Max width 480px) */
+@media (max-width: 480px) {
+    .section-container {
+        margin: 1.5rem 1rem; /* Less margin on the sides */
+        padding: 1.5rem;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem; /* Even smaller title for small phones */
+    }
+
+    .form-buttons {
+        flex-direction: column; /* Stacks Submit and Reset buttons */
+    }
+
+    .btn {
+        width: 100%; /* Makes buttons take up the full width */
+    }
+}
+/* Error Messages Styling */
+.error-msg {
+    color: #e74c3c; /* Red color */
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    min-height: 1.2em; /* Keeps the layout from jumping around */
+}
+/* Success Message */
+.success-msg {
+    display: none; /* Hidden by default */
+    background-color: #2ecc71; /* Green */
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+/* Loading Animation */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Disable button while loading */
+.btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/* Image Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    height: 250px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,86,179,0.9), transparent);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0); /* Slide up on hover */
+}
+
+.gallery-overlay h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
